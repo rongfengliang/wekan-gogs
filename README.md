@@ -4,6 +4,12 @@
 communication between [Wekan](https://wekan.github.io) and
 [Gogs](https://github.com/gogits/gogs).
 
+## run cli
+
+```code
+node app.js
+```
+
 ## Install
 
 ### Ship with Docker
