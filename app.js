@@ -24,7 +24,8 @@ var main = function() {
     config.wekangogs_url = process.env.WG_URL;
 
     require('./wekan-gogs.js')(config, function(err, w2g) {
-        if (err) {
+       console.log(w2g) 
+       if (err) {
             console.log(err);
             process.exit(1);
         } else {
