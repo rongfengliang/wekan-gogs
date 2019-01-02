@@ -1,0 +1,66 @@
+/* This script creates an initial DB, with default configurations */
+
+CREATE TABLE IF NOT EXISTS 'auth' (
+	'gogs_token'		varchar,
+	PRIMARY KEY(gogs_token)
+);
+
+CREATE TABLE IF NOT EXISTS 'repos' (
+	'repoId'		integer,
+	'username'		varchar,
+	'repoName'		varchar,
+	'boardId'		varchar,
+	'backlogListId'		varchar,
+	'active'		integer,
+	'active_prio'		integer,
+	'hookId'		integer,
+	'hook_prioId'		integer,
+	'defaultSwimlaneId' 	varchar,
+	PRIMARY KEY(repoId)
+);
+
+CREATE TABLE IF NOT EXISTS 'cards' (
+	'issueId'	integer,
+	'repoId'	integer,
+	'issueIndex'	integer,
+	'cardId'	varchar,
+	'cardPrioId'	varchar,
+	'boardId'	varchar,
+	'swimlaneId'	varchar,
+	'listId'	varchar,
+	'listPrioId'	varchar,
+	PRIMARY KEY(issueId)
+);
+
+CREATE TABLE IF NOT EXISTS 'comments' (
+	'gcommentId'	integer,
+	'wcommentId'	varchar,
+	'cardId'	varchar,
+	PRIMARY KEY(gcommentId)
+);
+
+CREATE TABLE IF NOT EXISTS 'boards_prio' (
+	'wekan_userid'		varchar,
+	'boardId'		varchar,
+	'backlogListId'		varchar,
+	'defaultSwimlaneId'	varchar,
+	PRIMARY KEY(wekan_userid)
+);
+
+CREATE TABLE IF NOT EXISTS 'lists_prio' (
+	'listId'	varchar,
+	'boardId'	varchar,
+	'labelName'	varchar,
+	PRIMARY KEY(listId)
+);
+
+CREATE TABLE IF NOT EXISTS 'labels' (
+	'idsql'		integer,
+	'id'		integer UNIQUE,
+	'repoId'	integer,
+	'labelName'	varchar,
+	'listId'	varchar,
+	'prioListId'	varchar,
+	PRIMARY KEY(id)
+);
+
